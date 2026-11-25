@@ -1,56 +1,61 @@
-# Welcome to your Expo app 👋
+# Trail Builder
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Expo SDK 57 ve React Native ile hazırlanmış, iOS/Expo Go uyumlu köprü bulmaca oyunu.
 
-## Get started
+## Expo Go ile çalıştırma
 
-1. Install dependencies
+1. Telefona Expo Go yükleyin ve giriş yapın.
+2. Bilgisayar ile telefonun aynı Wi-Fi ağında olduğundan emin olun.
+3. Proje klasöründe `npm install` çalıştırın.
+4. `npx expo start --lan` çalıştırın.
+5. iPhone kamerasıyla terminaldeki QR kodunu okutun.
 
-   ```bash
-   npm install
-   ```
+Bağlantı sorunu yaşanırsa `npx expo start --tunnel` kullanılabilir.
 
-2. Start the app
+## Oyun yapısı
 
-   ```bash
-   npx expo start
-   ```
+- 10 katmana ayrılmış 500 doğrulanmış bölüm
+- Her katmanda farklı giriş/çıkış düzenleri ve mekanik karışımları sunan 5 etap
+- 4×4, 5×5, 6×6, 7×7 ve 8×8 bölüm grupları
+- Kademeli artan köprü uzunluğu ve dönüş sayısı
+- Başlangıçtan hedefe yol parçalarını kare kare elle yerleştirme
+- Gidilen yöne göre otomatik oluşan düz ve köşe parçaları
+- Birleşme uçları hücre kenarlarında tam merkezlenmiş gerçekçi köprü assetleri
+- Yerleştirilmiş herhangi bir parçaya dokunarak yolu o noktadan geriye çekme
+- Native sürücülü akıcı yerleştirme ve yön değiştirme animasyonları
+- Hızlı art arda dokunmalarda güvenli hamle ve ipucu sayımı
+- Her satır ve sütunda bulunması gereken parça sayısını gösteren ipuçları
+- Tamamlanan sayıların yeşil, aşılan sayıların kırmızı gösterimi
+- İpucu ve sıfırlama kontrolleri
+- Özel logo, uygulama ikonu ve animasyonlu açılış ekranı
+- Uygulama başlangıcında bir kez oynayan atmosferik logo ve ışık geçişi animasyonu
+- Özgün sakin arka plan müziği ve beş farklı oyun ses efekti
+- Çözüm anında başarı efekti ve animasyonlu yıldız sonuç ekranı
+- Devam düğmesinden sonra efektli yeni bölüm geçişi
+- Katman seçicili, asset destekli 500 bölümlük bölüm ekranı
+- Kayalık kapalı kareler, zorunlu kontrol noktaları ve tek yönlü geçişler
+- Yeni mekanikler için gerçekçi şeffaf assetler ve yalnızca ilk karşılaşmada gösterilen öğretici kartlar
+- İlk tamamlamada kazanılan ipucu parası ve katman parası ekonomisi
+- İpucu parasıyla kullanılan ipuçları ve artan maliyetle açılan yeni katmanlar
+- Ana ekran, bölüm listesi ve oyun ekranında asset destekli bakiye göstergeleri
+- Bölümler ve oyun ekranından tek dokunuşla ana sayfaya dönüş
+- 1–3 yıldız puanlama ve bölüm kartlarında yıldız gösterimi
+- SQLite tabanlı yerel ilerleme kaydı
+- iPhone ve iPad desteği
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Kontroller
 
 ```bash
-npm run reset-project
+npm run validate-levels
+npm run typecheck
+npm run lint
+npx expo-doctor
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Bölümleri yeniden üretme
 
-### Other setup steps
+```bash
+npm run generate-levels
+```
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Üretici sabit tohumlar kullanır; aynı kaynak kod her seferinde aynı 500 bölümü oluşturur.

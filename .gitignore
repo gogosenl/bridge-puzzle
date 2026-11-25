@@ -5,7 +5,9 @@ node_modules/
 
 # Expo
 .expo/
+.expo-*/
 dist/
+dist-*/
 web-build/
 expo-env.d.ts
 
@@ -17,6 +19,16 @@ expo-env.d.ts
 *.p12
 *.key
 *.mobileprovision
+*.cer
+*.keystore
+credentials.json
+google-services.json
+GoogleService-Info.plist
+
+# packaged application builds
+*.ipa
+*.apk
+*.aab
 
 # Metro
 .metro-health-check*
@@ -25,19 +37,25 @@ expo-env.d.ts
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+.board-debug.png
+*.log
 
 # macOS
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
+# local environment files and secrets
+.env
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo
 
-example
-
 # generated native folders
 /ios
 /android
+
+# test and coverage output
+coverage/
+.turbo/

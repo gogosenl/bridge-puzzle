@@ -12,8 +12,14 @@
     }
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "src/app/**/*.ts",
+    "src/app/**/*.tsx",
+    "src/components/bridge-board.tsx",
+    "src/components/pressable-scale.tsx",
+    "src/constants/palette.ts",
+    "src/game/**/*.ts",
+    "src/game/**/*.json",
+    "src/state/**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ]
